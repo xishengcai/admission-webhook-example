@@ -140,7 +140,6 @@ func validationRequired(ignoredList []string, metadata *metav1.ObjectMeta) bool 
 func updateAnnotation(target map[string]string, added map[string]string) (patch []patchOperation) {
 	for key, value := range added {
 		if target == nil || target[key] == "" {
-			target = map[string]string{}
 			patch = append(patch, patchOperation{
 				Op:   "add",
 				Path: "/metadata/annotations",
